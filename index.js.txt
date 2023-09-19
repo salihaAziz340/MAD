@@ -1,0 +1,119 @@
+
+
+**Problem 1: Print the kth digit from the end**
+
+
+function getKthDigitFromEnd(number, k) {
+  // Convert the number to a string to access individual digits
+  const numString = number.toString();
+  
+  // Check if k is within the range of the number of digits
+  if (k >= 1 && k <= numString.length) {
+    // Use array indexing to get the kth digit from the end
+    const kthFromEnd = numString[numString.length - k];
+    return parseInt(kthFromEnd); // Convert back to integer
+  } else {
+    return null; // Invalid k value
+  }
+}
+
+const number = 23617;
+const k = 4;
+console.log(getKthDigitFromEnd(number, k)); // Output: 3
+
+**Problem 2: Find the sum of all digits**
+
+
+function sumOfDigits(number) {
+  // Convert the number to a string, split into an array, and use reduce
+  return number.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+}
+
+// Example usage:
+const number = 23617;
+console.log(sumOfDigits(number)); // Output: 20
+
+
+**Problem 3: Find the sum of even digits**
+
+function sumOfEvenDigits(number) {
+  // Convert the number to a string, split into an array, and use map and reduce
+  return number.toString().split('').map(digit => parseInt(digit)).filter(digit => digit % 2 === 0).reduce((acc, digit) => acc + digit, 0);
+}
+
+// Example usage:
+const number = 23617;
+console.log(sumOfEvenDigits(number)); // Output: 8
+
+**Problem 4: Calculate squares and cubes of numbers from 0 to 10**
+
+
+for (let i = 0; i <= 10; i++) {
+  console.log(`Number: ${i}, Square: ${i ** 2}, Cube: ${i ** 3}`);
+}
+
+
+**Problem 5: Find the left-most vowel and reverse digits**
+
+function findLeftMostVowel(inputString) {
+  const vowels = 'AEIOUaeiou';
+  for (let i = 0; i < inputString.length; i++) {
+    if (vowels.includes(inputString[i])) {
+      return inputString[i];
+    }
+  }
+  return null; // No vowels found
+}
+
+function reverseDigits(number) {
+  const reversedNumber = parseInt(number.toString().split('').reverse().join(''));
+  return reversedNumber;
+}
+
+
+const string = 'comsats';
+const number = 12345;
+console.log(`Left-most vowel: ${findLeftMostVowel(string)}`);
+console.log(`Reverse of ${number}: ${reverseDigits(number)}`);
+
+**Problem 6: Guess the random number**
+
+const randomInt = Math.floor(Math.random() * 10) + 1; // Generate a random number between 1 and 10
+
+const userGuess = prompt('Guess the number (between 1 and 10):');
+
+if (parseInt(userGuess) === randomInt) {
+  console.log('You WIN!');
+} else {
+  console.log('Not matched. The correct number was ' + randomInt);
+}
+
+
+**Problem 7: Check if 10 appears in first or last position**
+
+
+function checkForTenInArray(arr) {
+  if (arr.length >= 2) {
+    return arr[0] === 10 || arr[arr.length - 1] === 10;
+  } else {
+    return false; // Array length must be greater or equal to 2
+  }
+}
+
+
+const arr1 = [10, 2, 3];
+const arr2 = [2, 3, 10];
+console.log(checkForTenInArray(arr1)); // Output: true
+console.log(checkForTenInArray(arr2)); // Output: true
+```
+
+**Problem 8: Sort letters in alphabetical order**
+
+
+function sortStringAlphabetically(inputString) {
+  return inputString.split('').sort().join('');
+}
+
+
+const inputString = 'comsats';
+console.log(`Sorted string: ${sortStringAlphabetically(inputString)}`);
